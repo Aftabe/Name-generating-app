@@ -19,7 +19,7 @@ function loadNames(e) {
   e.preventDefault();
   //Read the values from the form and create variables
   const origin = document.getElementById('country').value,
-    gender = document.getAnimations('gender').value,
+    gender = document.getElementById('gender').value,
     amount = document.getElementById('quantity').value;
 
   // Build the URL
@@ -29,6 +29,18 @@ function loadNames(e) {
     url += `
   region=${origin}&
   `;
-  }
+  };
+  // Read the gender and append to the url
+  if (gender !== '') {
+    url += `
+  gender=${gender}&
+  `;
+  };
+  // Read the amount and append to the url
+  if (amount !== '') {
+    url += `
+    amount=${amount}&
+    `;
+  };
   console.log(url);
-}
+};
