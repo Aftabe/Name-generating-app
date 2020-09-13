@@ -41,6 +41,34 @@ function loadNames(e) {
     url += `
     amount=${amount}&
     `;
-  };
+  }
+
   console.log(url);
-};
+
+  // Ajax call
+  const xhr = new XMLHttpRequest();
+
+  // Open the connection
+  xhr.open('GET', url, true);
+
+  // Execute the function
+  xhr.onload = function(){
+    if(this.status === 200){
+      let names = JSON.parse(this.responseText);
+      // console.log(names);
+      // Insert into html
+      let html = '<h2>Generated Names</h2>';
+      html += '<ul class="list">';
+      names.forEach(function(name){
+        html += `
+        <li>${name.anme}</li>
+        `;
+      });
+      html += '</ul>';
+    }
+  }
+
+  // 
+  xhr.send();
+
+}
