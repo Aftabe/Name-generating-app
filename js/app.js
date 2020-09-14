@@ -43,32 +43,38 @@ function loadNames(e) {
     `;
   }
 
-  console.log(url);
-
+  
   // Ajax call
   const xhr = new XMLHttpRequest();
-
+  
+  
+  
   // Open the connection
   xhr.open('GET', url, true);
+  // xhr.setRequestHeader('Access-Control-Allow-Headers', '*');
 
+  
+  
   // Execute the function
   xhr.onload = function(){
+    console.log(xhr.responseText);
     if(this.status === 200){
       let names = JSON.parse(this.responseText);
-      // console.log(names);
+      console.log(names);
       // Insert into html
       let html = '<h2>Generated Names</h2>';
       html += '<ul class="list">';
       names.forEach(function(name){
         html += `
-        <li>${name.anme}</li>
+        <li>${name.name}</li>
         `;
       });
       html += '</ul>';
     }
   }
 
-  // 
+
+  // Send
   xhr.send();
 
 }
