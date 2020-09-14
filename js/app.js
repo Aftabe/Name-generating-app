@@ -7,7 +7,6 @@ const form = document.getElementById("generate-names");
 
 // Event listners
 addEventListener();
-
 function addEventListener() {
   // Execute the function to query API
   form.addEventListener('submit', loadNames);
@@ -24,7 +23,7 @@ function loadNames(e) {
 
   // Build the URL
   let url = 'https://uinames.com/api/';
-  // Read the url and append to the url
+  // Read the origin and append to the url
   if (origin !== '') {
     url += `
   region=${origin}&
@@ -57,7 +56,7 @@ function loadNames(e) {
   
   // Execute the function
   xhr.onload = function(){
-    console.log(xhr.responseText);
+    // console.log(xhr.responseText);
     if(this.status === 200){
       let names = JSON.parse(this.responseText);
       console.log(names);
@@ -72,8 +71,6 @@ function loadNames(e) {
       html += '</ul>';
     }
   }
-
-
   // Send
   xhr.send();
 
