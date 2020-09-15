@@ -22,7 +22,9 @@ function loadNames(e) {
     amount = document.getElementById('quantity').value;
 
   // Build the URL
-  let url = 'https://uinames.com/api/';
+  let url = 'https://reallyfreegeoip.org/json/#';
+
+  console.log(url);
   // Read the origin and append to the url
   if (origin !== '') {
     url += `
