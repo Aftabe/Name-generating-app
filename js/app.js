@@ -77,3 +77,5 @@ function loadNames(e) {
   xhr.send();
 
 }
+
+alert('test');
